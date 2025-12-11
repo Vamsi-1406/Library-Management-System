@@ -1,0 +1,61 @@
+{% set title = "Books" %}
+{% set curPage = "books" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <h5 class="page_title text-center border-bottom border-primary pb-2">{{title}}</h5>
+
+  <div class="card shadow">
+    <div class="card-body">
+
+      <a href="/admin/book/add" class="btn btn-sm btn-primary mb-2">+ Add Book</a>
+
+      <div class="table-responsive">
+        <table class="table table-striped p-2" id="table">
+          <thead>
+            <tr>
+              <th>Sr No</th>
+              <th style="width:10%">Image</th>
+              <th>ISBN</th>
+              <th>Name</th>
+              <th>Author</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in books %}
+            <tr>
+              <td>{{loop.index}}</td>
+              <td>
+                <a href="{{url_for('static',filename='uploads/books/'+item['img_file_name'])}}" target="_blank">
+                  <img src="{{url_for('static',filename='uploads/books/'+item['img_file_name'])}}"
+                    alt="{{item['name']}}" style="width: 100%;" />
+                </a>
+              </td>
+              <td>{{item['isbn']}}</td>
+              <td>
+                {{item['name']}}
+              </td>
+              <td>
+                {{item['author']}}
+              </td>
+              <td>
+                <a href="/admin/book/view?id={{item['_id']}}" class="btn btn-sm btn-primary w-100 mb-1">View</a>
+                <a href="/admin/book/edit?id={{item['_id']}}" class="btn btn-sm btn-info w-100 mb-1">Edit</a>
+                <a href="/admin/book/delete?id={{item['_id']}}"
+                  onclick="return confirm('Are you sure? do you want to remove this book')"
+                  class="btn btn-sm btn-danger w-100 mb-1">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% set title = "All Members" %}
+{% set curPage = "members" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <h5 class="page_title text-center border-bottom border-primary pb-2">{{title}}</h5>
+
+  <div class="card shadow">
+    <div class="card-body">
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped border" id="table">
+          <thead>
+            <tr>
+              <th>Sr No</th>
+              <th>Member&nbsp;name</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Contact&nbsp;No</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in members %}
+            <tr class="{{'text-danger' if not item['status']}}">
+              <td>{{loop.index}}</td>
+              <td>{{item['fullname']}}</td>
+              <td>{{item['email']}}</td>
+              <td>{{item['address']}}</td>
+              <td>{{item['mobile']}}</td>
+              <td>{{'Deleted' if not item['status'] else 'Active'}}</td>
+              <td>
+                <a href="/admin/member/details?id={{item['_id']}}" class="btn btn-sm btn-info w-100 mb-1"
+                  title="View member details">View</a>
+                {%if item['status']%}
+                <a href="/admin/member/delete?id={{item['_id']}}" class="btn btn-sm btn-danger w-100 mb-1"
+                  title="Delete Member">Delete</a>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

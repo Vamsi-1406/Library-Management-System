@@ -1,0 +1,93 @@
+{% set title = 'Pay Late Fee & Checkout Book' %}
+{% set curPage = "bookCheckOut" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <h5 class="page_title text-center border-bottom border-primary pb-2">{{title}}</h5>
+
+  <div class="card shadow">
+    <div class="card-body">
+
+      <a href="/member/transactions" class="btn btn-sm btn-info mb-2">Back to transactions
+        details</a>
+
+      <div class="row">
+        <div class="col-md-7">
+          <form class="border p-2" action="{{request.url}}" id="checkOutForm" method="post">
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Book Name</label>
+              <input type="text" class="form-control" id="name" name="name" value="{{book['name']}}" disabled>
+              <input type="hidden" name="book_id" value="{{book['_id']}}">
+            </div>
+
+            <div class="mb-3">
+              <label for="location_id" class="form-label required">Location</label>
+              <select name="location_id" id="location_id" class="form-select" required>
+                <option value="">--select--</option>
+                {% for loc in locations %}
+                <option value="{{loc._id}}">{{loc.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col">
+                <label for="delayed_days" class="form-label">Delayed Days</label>
+                <input type="text" class="form-control" id="delayed_days" name="delayed_days"
+                  value="{{transaction['delayed_days']}}" readonly>
+              </div>
+              <div class="col">
+                <label for="late_fee" class="form-label">Late fee Amount($)</label>
+                <input type="text" class="form-control" id="transaction_id" name="late_fee"
+                  value="{{transaction['late_fee']}}" readonly>
+              </div>
+            </div>
+            <hr>
+            <h6>Card Details</h6>
+            <hr>
+
+            <div class="mb-3">
+              <label for="card_name" class="form-label">Name on card</label>
+              <input type="text" class="form-control" id="card_name" name="card_name" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="card_number" class="form-label">Card number</label>
+              <input type="number" min="0000000000000000" max="9999999999999999" class="form-control" id="card_number" name="card_number" required>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col">
+                <label for="exp_month" class="form-label">Exp Month</label>
+                <input type="number" min="01" step="1" max="12" class="form-control" id="exp_month" name="exp_month"
+                  required>
+              </div>
+              <div class="col">
+                <label for="exp_year" class="form-label">Exp Year</label>
+                <input type="number" min="2023" max="3023" class="form-control" id="exp_year" name="exp_year" required>
+              </div>
+              <div class="col">
+                <label for="cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cvv" name="cvv" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="hidden" name="transaction_id" value="{{transaction['_id']}}">
+              <input type="submit" class="btn btn-success form-control" value="Pay & Checkout">
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

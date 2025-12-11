@@ -1,0 +1,91 @@
+{% set title = "Dashboard" %}
+{% set curPage = "dashboard" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="card shadow">
+    <div class="card-body">
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="bg-success bg-gradient text-center text-white shadow p-2 border">
+            <h5>Books&nbsp;CheckedIn</h5>
+            <h4>{{'%02d' %dashboard['total_books_taken']}}</h4>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="bg-success bg-gradient text-center text-white shadow p-2 border">
+            <h5>Books&nbsp;Checkedout</h5>
+            <h4>{{'%02d' %dashboard['checkedout_books']}}</h4>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="bg-success bg-gradient text-center text-white shadow p-2 border">
+            <h5>Books&nbsp;In&nbsp;hand</h5>
+            <h4>{{'%02d' %dashboard['books_in_hand']}}</h4>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <h5 class="text-center">Due Date Remainder</h5>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped border" id="table">
+          <thead>
+            <tr>
+              <th>Sr No</th>
+              <th>Book&nbsp;name</th>
+              <th>CheckIn&nbsp;Date</th>
+              <th>Due&nbsp;Date</th>
+              <th>CheckOut&nbsp;Date</th>
+              <th>Late&nbsp;Fee</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in transactions %}
+            <tr class="">
+              <td>{{loop.index}}</td>
+              <td>{{item['book']['name']}}</td>
+              <td>{{item['check_in_date'].strftime('%Y-%m-%d')}}</td>
+              <td>{{item['due_date'].strftime('%Y-%m-%d')}}</td>
+              <td>{{item['check_out_date'].strftime('%Y-%m-%d') if item['check_out_date']}}</td>
+              <td>${{'%0.2f'%item['late_fee']|float}}</td>
+              <td>{{TransactionStatus(item['status']).name}}</td>
+              <td>
+                <a href="/member/transaction/details?id={{item['_id']}}" class="btn btn-sm btn-info w-100 mb-1"
+                  title="View transaction details">View</a>
+                {% if item['status'] == TransactionStatus.CHECKED_IN.value%}
+                {% if item['is_delayed'] %}
+                <a href="/member/pay-check-out-book?id={{item['_id']}}" class="btn btn-sm btn-success w-100 mb-1"
+                  title="Pay & Checkout since delayed">Pay&nbsp;&&nbsp;Checkout</a>
+                {% else%}
+                <a href="/member/check-out-book?id={{item['_id']}}" class="btn btn-sm btn-success w-100 mb-1"
+                  title="Checkout this book">Checkout</a>
+                {% if not item['is_extended'] %}
+                <a href="/member/extend?id={{item['_id']}}" class="btn btn-sm btn-primary w-100 mb-1"
+                  title="Can be extended once upto 2 weeks from due date">Extend</a>
+                {% endif %}
+                {% endif %}
+
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+{% endblock %}

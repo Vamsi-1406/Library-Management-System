@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "65708e6061384951cf7c36c9"
+  },
+  "fullname": "Member-1",
+  "email": "member1@gmail.com",
+  "mobile": "9551456523",
+  "password": "1234",
+  "role": "Member",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "657104ce3a35892595e7e403"
+  },
+  "fullname": "Member-2",
+  "email": "member2@gmail.com",
+  "mobile": "7894561234",
+  "password": "1234",
+  "role": "Member",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "65710f053e5184f9333d9052"
+  },
+  "fullname": "Member-3",
+  "email": "member3@gmail.com",
+  "mobile": "9551456523",
+  "password": "1234",
+  "role": "Member",
+  "status": false
+},
+{
+  "_id": {
+    "$oid": "6571a27fbf15b4b3bb9e0865"
+  },
+  "fullname": "Test User",
+  "email": "testuser@gmail.com",
+  "mobile": "8529637412",
+  "password": "1234",
+  "role": "Member",
+  "registered_on": "2023-12-07",
+  "status": true
+}]

@@ -1,0 +1,120 @@
+{% set title = "Book Details" %}
+{% set curPage = "bookDetails" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <h5 class="page_title text-center border-bottom border-primary pb-2">{{title}}</h5>
+
+  <div class="card shadow">
+    <div class="card-body">
+
+      <a href="/member/books" class="btn btn-sm btn-outline-danger mb-4">Back to books</a>
+      <div class="row">
+        <div class="col-sm-4">
+
+          <div>
+            <img src="{{url_for('static',filename='uploads/books/'+book['img_file_name'])}}" alt="{{book['name']}}"
+              style="width: 100%;" />
+          </div>
+
+        </div>
+
+        <div class="col-sm-8">
+
+          <table class="table table-borderd border">
+            <tr>
+              <th style="width: 30%;">Name</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['name']}}</td>
+            </tr>
+            <tr>
+              <th>Author</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['author']}}</td>
+            </tr>
+            <tr>
+              <th>Year</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['year']}}</td>
+            </tr>
+            <tr>
+              <th>Publisher</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['publisher']}}</td>
+            </tr>
+            <tr>
+              <th>Language</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['language']}}</td>
+            </tr>
+            <tr>
+              <th>ISBN</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['isbn']}}</td>
+            </tr>
+            <tr>
+              <th>Description</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['description']}}</td>
+            </tr>
+          </table>
+
+          <hr>
+
+          {% if transaction %}
+          <h6 class="text-danger">Note: You have taken this book</h6>
+          <h6 class="text-danger">Due Date: {{transaction['due_date'].strftime('%Y-%m-%d')}}</h6>
+
+          {% else %}
+
+          <h6 class="text-center">Stock Details</h6>
+          {% if stocks %}
+          <table class="table table-bordered">
+            <thead>
+              <th>Sno</th>
+              <th>Location</th>
+              <th>Quantity</th>
+            </thead>
+            <tbody>
+              {% for stock in stocks %}
+              <tr>
+                <td>{{loop.index}}</td>
+                <td>{{stock['location']['name']}}</td>
+                <td>{{stock['quantity']}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+          <hr>
+          <a href="/member/check-in-book?id={{book['_id']}}" class="btn btn-sm btn-outline-success">Check-Out Book</a>
+
+          {% else %}
+          <h6>Sorry, Stock Not Available</h6>
+          <!-- Get Next Available Date -->
+          {% if book_available_date%}
+          <h6>Book Available Date : {{book_available_date.strftime('%Y-%m-%d')}}</h6>
+          {% endif %}
+
+          {% endif %}
+
+          {% if not reserved%}
+          <a href="/member/reserve-book?id={{book['_id']}}" class="btn btn-sm btn-outline-success">Reserve Book</a>
+          {% else %}
+          <h6 class="my-1">Book already reserved</h6>
+          {% endif %}
+
+          {% endif %}
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

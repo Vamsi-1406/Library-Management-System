@@ -1,0 +1,44 @@
+{% set title = "Profile" %}
+{% set curPage = "profile" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="card shadow border-primary">
+    <div class="card-body">
+      <form class="g-3 w-50" action="{{request.url}}" method="post" id="memberForm">
+        <div class="mt-3 mb-3">
+          <label for="firstname" class="form-label text-secondary">First name</label>
+          <input type="text" class="form-control" id="fullname" name="fullname" value="{{member['firstname']}}" required
+            autofocus>
+        </div>
+        <div class="mt-3 mb-3">
+          <label for="lastname" class="form-label text-secondary">Last name</label>
+          <input type="text" class="form-control" id="lastname" name="lastname" value="{{member['lastname']}}" required
+            autofocus>
+        </div>
+        <div class="mt-3 mb-3">
+          <label for="address" class="form-label text-secondary">Address</label>
+          <input type="text" class="form-control" id="address" name="address" value="{{member['address']}}" required
+            autofocus>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label text-secondary">Email</label>
+          <input type="email" class="form-control" name="email" id="email" value="{{member['email']}}" required>
+        </div>
+        <div class="mb-3">
+          <label for="mobile" class="form-label text-secondary">Mobile</label>
+          <input type="text" class="form-control" name="mobile" id="mobile" value="{{member['mobile']}}" required>
+        </div>
+        <input type="hidden" name="member_id" value="{{member['_id']}}">
+        <input type="submit" class="btn btn-primary form-control" value="Update" name="member">
+      </form>
+    </div>
+  </div>
+</div>
+
+</div>
+
+{% endblock %}

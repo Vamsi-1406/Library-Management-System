@@ -1,0 +1,67 @@
+{% set title = "Member Details" %}
+{% set curPage = "memberDetails" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <h5 class="page_title text-center border-bottom border-primary pb-2">{{title}}</h5>
+
+  <div class="card shadow">
+    <div class="card-body">
+
+      <a href="/admin/members" class="btn btn-sm btn-outline-danger mb-4">Back to members</a>
+
+
+      <div class="row">
+
+        <div class="col-sm-8">
+
+          <table class="table table-borderd border">
+            <tr>
+              <th style="width: 30%;">Member Name</th>
+              <td style="width: 5%;">:</td>
+              <td>{{member['fullname']}}</td>
+            </tr>
+
+            <tr>
+              <th style="width: 30%;">Email</th>
+              <td style="width: 5%;">:</td>
+              <td>{{member['email']}}</td>
+            </tr>
+
+            <tr>
+              <th style="width: 30%;">Mobile No</th>
+              <td style="width: 5%;">:</td>
+              <td>{{member['mobile']}}</td>
+            </tr>
+
+            <tr>
+              <th style="width: 30%;">Checked-in Books</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book_details['total_books_taken']}}</td>
+            </tr>
+
+            <tr>
+              <th style="width: 30%;">Checked-out Books</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book_details['checkedout_books']}}</td>
+            </tr>
+
+            <tr>
+              <th style="width: 30%;">Books in hand</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book_details['books_in_hand']}}</td>
+            </tr>
+
+          </table>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

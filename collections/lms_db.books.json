@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "657054956ca5ac247c4e064d"
+  },
+  "isbn": "979-8887680026",
+  "name": "Interesting Facts For Curious Minds",
+  "author": " Jordan Moore",
+  "language": "English",
+  "description": "Interesting Facts For Curious Minds gives you the answer to all these and many, many more questions that I know have crossed your mind from time to time. This book is divided into 63 chapters by topic for your convenience, bringing you a nice mix of science, history, pop culture, and all sorts of stuff in between. ",
+  "img_file_name": "657054956ca5ac247c4e064d.jpg",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "657055096ca5ac247c4e064e"
+  },
+  "isbn": "978-1492670025",
+  "name": "Young Chefs",
+  "author": " America’s Test Kitchen Kidss",
+  "language": "English",
+  "description": "Want to bake the most-awesome-ever cupcakes? Or surprise your family with breakfast tacos on Sunday morning? Looking for a quick snack after school? Or maybe something special for a sleepover? It's all here. Learn to cook like a pro―it's easier than you think.",
+  "img_file_name": "657055096ca5ac247c4e064e.jpg",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "6571a216bf15b4b3bb9e0864"
+  },
+  "isbn": "741852",
+  "name": "Test Book",
+  "author": "Test Author",
+  "language": "English",
+  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quibusdam corporis fugiat. Quaerat magni error numquam magnam, cupiditate doloribus impedit.",
+  "img_file_name": "6571a216bf15b4b3bb9e0864.jpg",
+  "status": true
+}]

@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "6570172b4f0a121d0f50d7b0"
+  },
+  "name": "Location-1",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "657017ca4f0a121d0f50d7b1"
+  },
+  "name": "Location-2",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "657017ce4f0a121d0f50d7b2"
+  },
+  "name": "Location-3",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "657017d34f0a121d0f50d7b3"
+  },
+  "name": "Location-4",
+  "status": true
+}]

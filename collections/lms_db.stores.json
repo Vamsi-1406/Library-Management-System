@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "6570f8c334e862218e20c355"
+  },
+  "location_id": {
+    "$oid": "6570172b4f0a121d0f50d7b0"
+  },
+  "book_id": {
+    "$oid": "657054956ca5ac247c4e064d"
+  },
+  "quantity": 0
+},
+{
+  "_id": {
+    "$oid": "6570f8ce34e862218e20c364"
+  },
+  "book_id": {
+    "$oid": "657055096ca5ac247c4e064e"
+  },
+  "location_id": {
+    "$oid": "657017ca4f0a121d0f50d7b1"
+  },
+  "quantity": 0
+},
+{
+  "_id": {
+    "$oid": "6570f8f134e862218e20c39c"
+  },
+  "book_id": {
+    "$oid": "657055096ca5ac247c4e064e"
+  },
+  "location_id": {
+    "$oid": "657017d34f0a121d0f50d7b3"
+  },
+  "quantity": 1
+},
+{
+  "_id": {
+    "$oid": "6570f94734e862218e20c405"
+  },
+  "book_id": {
+    "$oid": "657054956ca5ac247c4e064d"
+  },
+  "location_id": {
+    "$oid": "657017ce4f0a121d0f50d7b2"
+  },
+  "quantity": 0
+},
+{
+  "_id": {
+    "$oid": "65710f4234e862218e20d646"
+  },
+  "book_id": {
+    "$oid": "657054956ca5ac247c4e064d"
+  },
+  "location_id": {
+    "$oid": "657017d34f0a121d0f50d7b3"
+  },
+  "quantity": 0
+},
+{
+  "_id": {
+    "$oid": "6571742734e862218e20f385"
+  },
+  "book_id": {
+    "$oid": "657055096ca5ac247c4e064e"
+  },
+  "location_id": {
+    "$oid": "6570172b4f0a121d0f50d7b0"
+  },
+  "quantity": 0
+},
+{
+  "_id": {
+    "$oid": "6571a23834e862218e211352"
+  },
+  "book_id": {
+    "$oid": "6571a216bf15b4b3bb9e0864"
+  },
+  "location_id": {
+    "$oid": "6570172b4f0a121d0f50d7b0"
+  },
+  "quantity": 1
+},
+{
+  "_id": {
+    "$oid": "6571a25334e862218e21136e"
+  },
+  "book_id": {
+    "$oid": "6571a216bf15b4b3bb9e0864"
+  },
+  "location_id": {
+    "$oid": "657017ce4f0a121d0f50d7b2"
+  },
+  "quantity": 0
+},
+{
+  "_id": {
+    "$oid": "6571a37534e862218e211498"
+  },
+  "book_id": {
+    "$oid": "6571a216bf15b4b3bb9e0864"
+  },
+  "location_id": {
+    "$oid": "657017d34f0a121d0f50d7b3"
+  },
+  "quantity": 1
+},
+{
+  "_id": {
+    "$oid": "6571a4ef34e862218e21165f"
+  },
+  "book_id": {
+    "$oid": "657054956ca5ac247c4e064d"
+  },
+  "location_id": {
+    "$oid": "657017ca4f0a121d0f50d7b1"
+  },
+  "quantity": 1
+}]

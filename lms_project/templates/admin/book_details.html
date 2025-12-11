@@ -1,0 +1,72 @@
+{% set title = "Book Details" %}
+{% set curPage = "bookDetails" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <h5 class="page_title text-center border-bottom border-primary pb-2">{{title}}</h5>
+
+  <div class="card shadow">
+    <div class="card-body">
+
+      <a href="/admin/books" class="btn btn-sm btn-outline-danger mb-4">Back to books</a>
+      <div class="row">
+        <div class="col-sm-4">
+
+          <div>
+            <img src="{{url_for('static',filename='uploads/books/'+book['img_file_name'])}}" alt="{{book['name']}}"
+              style="width: 100%;" />
+          </div>
+
+        </div>
+
+        <div class="col-sm-8">
+
+          <table class="table table-borderd border">
+            <tr>
+              <th style="width: 30%;">Name</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['name']}}</td>
+            </tr>
+            <tr>
+              <th>Author</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['author']}}</td>
+            </tr>
+            <tr>
+              <th>Year</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['year']}}</td>
+            </tr>
+            <tr>
+              <th>Publisher</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['publisher']}}</td>
+            </tr>
+            <tr>
+              <th>Language</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['language']}}</td>
+            </tr>
+            <tr>
+              <th>ISBN</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['isbn']}}</td>
+            </tr>
+            <tr>
+              <th>Description</th>
+              <td style="width: 5%;">:</td>
+              <td>{{book['description']}}</td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

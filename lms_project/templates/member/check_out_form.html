@@ -1,0 +1,45 @@
+{% set title = 'Book Check-Out' %}
+{% set curPage = "bookCheckOut" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <h5 class="page_title text-center border-bottom border-primary pb-2">{{title}}</h5>
+
+  <div class="card shadow">
+    <div class="card-body">
+
+      <a href="/member/transactions" class="btn btn-sm btn-info mb-2">Back to transactions
+        details</a>
+
+      <form class="w-50 border p-2" action="{{request.url}}" id="checkOutForm" method="post">
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Book Name</label>
+          <input type="text" class="form-control" id="name" name="name" value="{{book['name']}}" disabled>
+          <input type="hidden" name="book_id" value="{{book['_id']}}">
+        </div>
+
+        <div class="mb-3">
+          <label for="location_id" class="form-label required">Location</label>
+          <select name="location_id" id="location_id" class="form-select" required>
+            <option value="">--select--</option>
+            {% for loc in locations %}
+            <option value="{{loc._id}}">{{loc.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <input type="hidden" name="transaction_id" value="{{transaction['_id']}}">
+          <input type="submit" class="btn btn-success form-control" value="Checkout">
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

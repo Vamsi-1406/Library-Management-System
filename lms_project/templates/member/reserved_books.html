@@ -1,0 +1,38 @@
+{% set title = "Reserved Books" %}
+{% set curPage = "reservedBooks" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <h5 class="page_title text-center border-bottom border-primary pb-2">{{title}}</h5>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped p-2" id="table">
+          <thead>
+            <tr>
+              <th>SNo</th>
+              <th>Book&nbsp;name</th>
+              <th>Reserved&nbsp;On</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in reserved_books %}
+            <tr>
+              <td>{{loop.index}}</td>
+              <td>{{item['book']['name']}}</td>
+              <td>{{item['reserved_on']}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

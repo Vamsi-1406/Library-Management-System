@@ -1,0 +1,131 @@
+[{
+  "_id": {
+    "$oid": "65717468493589f22956a6d6"
+  },
+  "book_id": {
+    "$oid": "657055096ca5ac247c4e064e"
+  },
+  "checkin_location_id": {
+    "$oid": "6570172b4f0a121d0f50d7b0"
+  },
+  "member_id": {
+    "$oid": "65708e6061384951cf7c36c9"
+  },
+  "check_in_date": {
+    "$date": "2023-12-02T12:59:44.194Z"
+  },
+  "due_date": {
+    "$date": "2023-12-09T12:59:44.194Z"
+  },
+  "check_out_date": {
+    "$date": "2023-12-07T13:26:29.470Z"
+  },
+  "checkout_location_id": {
+    "$oid": "657017ca4f0a121d0f50d7b1"
+  },
+  "late_fee": 0,
+  "delayed_days": 0,
+  "is_delayed": false,
+  "is_paid": false,
+  "is_extended": false,
+  "status": 2,
+  "show_remainder": true
+},
+{
+  "_id": {
+    "$oid": "65717570e4472eec8bb73e83"
+  },
+  "book_id": {
+    "$oid": "657054956ca5ac247c4e064d"
+  },
+  "checkin_location_id": {
+    "$oid": "657017ce4f0a121d0f50d7b2"
+  },
+  "member_id": {
+    "$oid": "65708e6061384951cf7c36c9"
+  },
+  "check_in_date": {
+    "$date": "2023-12-07T13:04:08.126Z"
+  },
+  "due_date": {
+    "$date": "2023-12-21T13:04:08.126Z"
+  },
+  "check_out_date": {
+    "$date": "2023-12-07T16:26:47.894Z"
+  },
+  "checkout_location_id": {
+    "$oid": "657017ca4f0a121d0f50d7b1"
+  },
+  "late_fee": 0,
+  "delayed_days": 0,
+  "is_delayed": false,
+  "is_paid": false,
+  "is_extended": false,
+  "status": 2
+},
+{
+  "_id": {
+    "$oid": "6571a2bcbf15b4b3bb9e0866"
+  },
+  "book_id": {
+    "$oid": "6571a216bf15b4b3bb9e0864"
+  },
+  "checkin_location_id": {
+    "$oid": "657017ce4f0a121d0f50d7b2"
+  },
+  "member_id": {
+    "$oid": "6571a27fbf15b4b3bb9e0865"
+  },
+  "check_in_date": {
+    "$date": "2023-12-01T16:17:24.212Z"
+  },
+  "due_date": {
+    "$date": "2023-12-05T16:17:24.212Z"
+  },
+  "check_out_date": {
+    "$date": "2023-12-07T16:20:29.504Z"
+  },
+  "checkout_location_id": {
+    "$oid": "657017d34f0a121d0f50d7b3"
+  },
+  "late_fee": 2,
+  "delayed_days": 2,
+  "is_delayed": true,
+  "is_paid": true,
+  "is_extended": true,
+  "status": 2,
+  "show_remainder": true
+},
+{
+  "_id": {
+    "$oid": "6571a398bf15b4b3bb9e0868"
+  },
+  "book_id": {
+    "$oid": "657055096ca5ac247c4e064e"
+  },
+  "checkin_location_id": {
+    "$oid": "657017ca4f0a121d0f50d7b1"
+  },
+  "member_id": {
+    "$oid": "6571a27fbf15b4b3bb9e0865"
+  },
+  "check_in_date": {
+    "$date": "2023-12-07T16:21:04.723Z"
+  },
+  "due_date": {
+    "$date": "2023-12-09T16:21:04.723Z"
+  },
+  "check_out_date": {
+    "$date": "2023-12-07T16:24:38.670Z"
+  },
+  "checkout_location_id": {
+    "$oid": "657017d34f0a121d0f50d7b3"
+  },
+  "late_fee": 0,
+  "delayed_days": 0,
+  "is_delayed": false,
+  "is_paid": false,
+  "is_extended": false,
+  "status": 2,
+  "show_remainder": true
+}]

@@ -1,0 +1,57 @@
+{% set title = "Stocks" %}
+{% set curPage = "Stocks" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <h5 class="page_title text-center border-bottom border-primary pb-2">{{title}}</h5>
+
+  <div class="card shadow">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped border p-2" id="table">
+          <thead>
+            <tr>
+              <th>Sr No</th>
+              <th>Book</th>
+              <th>Location</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in stocks %}
+            <tr>
+              <td>{{loop.index}}</td>
+              <td>{{item['book']['name']}}</td>
+              <td>
+                <table class="">
+                  {% for loc in item['locations']%}
+                  <tr>
+                    <td>{{loc['name']}}</td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </td>
+              <td>
+                <table class="">
+                  {% for q in item['quantity']%}
+                  <tr>
+                    <td>{{q}}</td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </td>
+
+            </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

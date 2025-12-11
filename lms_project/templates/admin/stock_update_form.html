@@ -1,0 +1,53 @@
+{% set title = 'Update Stock' %}
+{% set curPage = "stocks" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <h5 class="page_title text-center border-bottom border-primary pb-2">{{title}}</h5>
+
+  <div class="card shadow">
+    <div class="card-body">
+      <form class="w-50" action="{{request.url}}" id="stockUpdateForm" method="post">
+
+        <div class="mb-3">
+          <label for="book_id" class="form-label">Book</label>
+          <select name="book_id" id="book_id" class="form-select" required>
+            <option value="">--select--</option>
+            {% for book in books %}
+            <option value="{{book._id}}">
+              {{book.name}}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="location_id" class="form-label">Location</label>
+          <select name="location_id" id="location_id" class="form-select" required>
+            <option value="">--select--</option>
+            {% for loc in locations %}
+            <option value="{{loc._id}}">
+              {{loc.name}}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Quantity</label>
+          <input type="number" min="1" step="1" class="form-control" id="quantity" name="quantity" required>
+        </div>
+
+        <div class="mb-3">
+          <input type="submit" class="btn btn-success form-control" value="Save Book">
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

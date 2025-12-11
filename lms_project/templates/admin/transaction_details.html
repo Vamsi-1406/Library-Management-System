@@ -1,0 +1,106 @@
+{% set title = "Transaction Details" %}
+{% set curPage = "transactionDetails" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <h5 class="page_title text-center border-bottom border-primary pb-2">{{title}}</h5>
+
+  <div class="card shadow">
+    <div class="card-body">
+
+      <a href="/admin/transactions" class="btn btn-sm btn-outline-danger mb-4">Back to transactions</a>
+
+
+      <div class="row">
+
+        <div class="col-sm-8">
+
+          <table class="table table-borderd border">
+            <tr>
+              <th style="width: 30%;">Member Name</th>
+              <td style="width: 5%;">:</td>
+              <td>{{transaction['member']['fullname']}}</td>
+            </tr>
+
+            <tr>
+              <th style="width: 30%;">Book Name</th>
+              <td style="width: 5%;">:</td>
+              <td>{{transaction['book']['name']}}</td>
+            </tr>
+
+            <tr>
+              <th>Check-in Date</th>
+              <td style="width: 5%;">:</td>
+              <td>{{transaction['check_in_date'].strftime('%Y-%m-%d')}}</td>
+            </tr>
+            <tr>
+              <th>Check-in Location</th>
+              <td style="width: 5%;">:</td>
+              <td>{{transaction['in_location']['name']}}</td>
+            </tr>
+
+            <tr>
+              <th>Due Date</th>
+              <td style="width: 5%;">:</td>
+              <td>{{transaction['due_date'].strftime('%Y-%m-%d')}}</td>
+            </tr>
+
+            <tr>
+              <th>Check-out Date</th>
+              <td style="width: 5%;">:</td>
+              <td>{{transaction['check_out_date'].strftime('%Y-%m-%d') if transaction['check_out_date']}}</td>
+            </tr>
+            <tr>
+              <th>Check-out Location</th>
+              <td style="width: 5%;">:</td>
+              <td>{{transaction['out_location']['name'] if transaction['out_location']}}</td>
+            </tr>
+
+            <tr>
+              <th>Late Fee</th>
+              <td style="width: 5%;">:</td>
+              <td>${{transaction['late_fee']}}</td>
+            </tr>
+
+            <tr>
+              <th>Delayed Days</th>
+              <td style="width: 5%;">:</td>
+              <td>{{transaction['delayed_days']}}</td>
+            </tr>
+
+            <tr>
+              <th>Transaction Status</th>
+              <td style="width: 5%;">:</td>
+              <td>{{TransactionStatus(transaction['status']).name}}</td>
+            </tr>
+
+            {% if transaction['is_paid']%}
+            <tr>
+              <th>payment Status</th>
+              <td style="width: 5%;">:</td>
+              <td>Paid</td>
+            </tr>
+            {% endif %}
+
+          </table>
+
+        </div>
+
+        <div class="col-sm-4">
+
+          <div>
+            <img src="{{url_for('static',filename='uploads/books/'+transaction['book']['img_file_name'])}}"
+              alt="{{transaction['book']['name']}}" style="width: 100%;" />
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
